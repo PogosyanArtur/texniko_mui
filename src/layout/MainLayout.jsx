@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react'
-import Header from '../views/Header'
+import Header from '../components/Header'
 
 
 const MainLayout = ({children}) => {

@@ -1,36 +1,20 @@
 import React from 'react'
 
 import CssBaseline from '@material-ui/core/CssBaseline'
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import deepOrange from '@material-ui/core/colors/deepOrange';
-import { BrowserRouter as Router } from "react-router-dom";
-
-
-const simpleTheme = createMuiTheme({
-  palette: {
-    primary: { main: "#2e375F" }, // Purple and green play nicely together.
-    secondary: { main: deepOrange[500] }, // This is just green.A700 as hex.
-  },
-  typography: { useNextVariants: true },
-  props: {
-    // Name of the component ⚛️
-    MuiTab: {
-      // The properties to apply
-      disableRipple: true, // No more ripple, on the whole application 💣!
-    },
-  },
-});
-
+import { install, ThemeProvider } from '@material-ui/styles';
+import theme from '../themes/simple'
+import { BrowserRouter} from "react-router-dom";
+install();
 
 
 const CommonLayout = ({ children }) => {
   return (
-    <MuiThemeProvider theme={simpleTheme}>
+    <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Router>
+      <BrowserRouter>
           {children}
-      </Router>
-    </MuiThemeProvider>
+      </BrowserRouter>
+    </ThemeProvider>
   )
 }
 

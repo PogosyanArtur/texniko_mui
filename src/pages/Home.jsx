@@ -9,8 +9,6 @@ import "slick-carousel/slick/slick-theme.css";
 import MainLayout from '../layout/MainLayout'
 import { bannerSideImages } from '../data/contacts'
 
-// import LayoutContainer from '../components/LayoutContainer'
-
 const styles = theme => ({
   '@keyframes zoomIn': {
     '0%': {

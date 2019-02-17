@@ -1,0 +1,109 @@
+import React, { useState, Fragment } from 'react'
+import { withStyles } from '@material-ui/core/styles';
+import { Link as RouterLink } from 'react-router-dom'
+import AnimateHeight from 'react-animate-height';
+import Wrapper from '../Wrapper'
+import Contacts from './Contacts'
+
+import { tabsData } from '../../data/contacts'
+import { Grid, Link, Hidden, IconButton, ListItemText, List, ListItem,unstable_useMediaQuery as useMediaQuery  } from '@material-ui/core'
+import { Menu as MenuIcon } from '@material-ui/icons'
+
+
+const styles = theme => ({
+	IconButton: {
+		cursor: 'pointer',
+		color: theme.palette.common.white,
+	},
+
+	logoFirstLetter: {
+		color: theme.palette.secondary.main,
+	},
+
+	LinkLogo: {
+		color: theme.palette.grey[ 50 ],
+		fontStyle: 'italic',
+		cursor: 'pointer',
+		'&:hover': {
+			textDecoration: 'none',
+		},
+	},
+
+	List: {
+			backgroundColor: theme.palette.common.white,
+			paddingTop: theme.spacing.unit * 0,
+			paddingBottom: theme.spacing.unit * 0,
+		},
+	ListItem: {
+		color: theme.palette.secondary.main,
+		textTransform: 'uppercase',
+		'&:hover, &:focus': {
+			backgroundColor: theme.palette.secondary.main,
+		}
+	},
+
+})
+
+
+const Header = ({ classes }) => {
+	let [ height, setHeight ] = useState(0)
+
+	const menuListToggleHandler = () => {
+		setHeight(height === 0 ? height = 'auto' : height = 0)
+	}
+
+	const closeMenuListHandler = () => {
+		setHeight(height = 0)
+	}
+
+	return (
+		<Fragment>
+			<Wrapper className={ classes.Wrapper }>
+			<Grid container justify="space-between" alignItems="center">
+				<Link to='/' component={ RouterLink } variant="h2" className={ classes.LinkLogo }>
+					<span className={ classes.logoFirstLetter }>T</span>exniko
+				</Link>
+				<Hidden implementation="css" mdDown>
+					<Contacts />
+				</Hidden>
+				<Hidden implementation="css" lgUp>
+				<IconButton className={ classes.IconButton } onClick={ menuListToggleHandler }>
+					<MenuIcon fontSize="large" />
+				</IconButton>
+				</Hidden>
+			</Grid>
+			</Wrapper>
+			<Hidden implementation="css" lgUp>
+				<AnimateHeight
+					duration={ 500 }
+					height={ height }
+				>
+					<List component="nav" className={ classes.List }>
+						{
+							tabsData.map(item => (
+								<ListItem
+									component={ RouterLink }
+									to={ `/${ item.value }` }
+									divider
+									button
+									key={ item.value }
+									onClick={ closeMenuListHandler }
+									className={ classes.ListItem }
+								>
+									<ListItemText primary={ item.name } dense="true" />
+								</ListItem>
+							))
+						}
+					</List>
+				</AnimateHeight>
+			</Hidden>
+			<Wrapper>
+				<Hidden implementation="css" lgUp>
+					<Contacts />
+				</Hidden>
+			</Wrapper>
+		</Fragment>
+	)
+}
+
+export default withStyles(styles)(Header)
