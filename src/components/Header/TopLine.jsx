@@ -1,12 +1,12 @@
 import React from 'react'
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/styles';
 import { Link as RouterLink } from 'react-router-dom'
 import Wrapper from '../Wrapper'
 import { location1 } from '../../data/contacts'
 import { Typography, Grid, Link, Divider, Hidden } from '@material-ui/core'
 import { AccessTime as AccessTimeIcon, LocationOn  as LocationOnIcon} from '@material-ui/icons'
 
-const styles = theme => ({
+const useStyles = makeStyles(theme=>({
 	Divider: {
 			backgroundColor: theme.palette.grey[ 600 ]
 		},
@@ -32,9 +32,10 @@ const styles = theme => ({
 		Icon: {
 			marginRight: theme.spacing.unit * 1,
 		},
-	})
+	}))
 	
-	export default withStyles(styles)(({ classes }) => {
+	export default () => {
+		const classes = useStyles()
 	return (
 		<Wrapper>
 			<Grid container justify='flex-end'>
@@ -56,4 +57,4 @@ const styles = theme => ({
 			<Divider className={ classes.Divider } />
 		</Wrapper>
 	)
-})
+}

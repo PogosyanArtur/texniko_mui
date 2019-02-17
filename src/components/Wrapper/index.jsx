@@ -1,8 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/styles';
 
-const styles = theme => ({
+const useStyles = makeStyles(theme=>({
     width: {
         margin: '0 auto',
         padding: "0 10px",
@@ -26,12 +26,12 @@ const styles = theme => ({
     widthFull: {
         width: '100%',
     },
-});
+}))
 
 const Wrapper = (props) => {
+    const classes = useStyles()
     const {
-        children,
-        classes,
+        children, 
         className,
         component: Component,
         style,
@@ -57,4 +57,4 @@ Wrapper.defaultProps = {
     component: 'div',
 };
 
-export default withStyles(styles)(Wrapper);
+export default Wrapper;

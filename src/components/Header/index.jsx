@@ -1,5 +1,5 @@
 import React from 'react'
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/styles';
 import { Link as RouterLink } from 'react-router-dom'
 import Wrapper from '../Wrapper'
 import TopLine from "./TopLine"
@@ -7,8 +7,9 @@ import Body from "./Body"
 
 import { tabsData } from '../../data/contacts'
 import { AppBar, Hidden,  Button, Toolbar } from '@material-ui/core'
+const styledBy = (property, mapping) => props => mapping[props[property]]
 
-const styles = theme => ({
+const useStyles = makeStyles((theme)=>({
 	Toolbar: {
 		backgroundColor: theme.palette.secondary.main,
 	},
@@ -20,14 +21,17 @@ const styles = theme => ({
 		transform: 'skew(-15deg)',
 		'&:hover, &:focus': {
 			backgroundColor: theme.palette.primary.main,
+			
 		}
 	}
 
-})
+}))
 
 
-export default withStyles(styles)(({classes}) => 
-		<AppBar position="fixed" color="primary">
+export default () => {
+
+	const classes = useStyles()
+	return	<AppBar position="fixed" color="primary">
 			<TopLine/>
 			<Body/>
 			<Hidden implementation="css" mdDown>
@@ -39,6 +43,7 @@ export default withStyles(styles)(({classes}) =>
 								key={ item.value }
 								fullWidth
 								variant='text'
+								color="white"
 								className={ classes.Button }
 								component={ RouterLink } 
 								to={ `/${ item.value }` }
@@ -51,5 +56,6 @@ export default withStyles(styles)(({classes}) =>
 				</Toolbar>
 			</Hidden>
 		</AppBar>
-)
+} 
+
 

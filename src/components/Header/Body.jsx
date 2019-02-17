@@ -1,16 +1,16 @@
 import React, { useState, Fragment } from 'react'
-import { withStyles } from '@material-ui/core/styles';
 import { Link as RouterLink } from 'react-router-dom'
 import AnimateHeight from 'react-animate-height';
 import Wrapper from '../Wrapper'
 import Contacts from './Contacts'
-
 import { tabsData } from '../../data/contacts'
-import { Grid, Link, Hidden, IconButton, ListItemText, List, ListItem,unstable_useMediaQuery as useMediaQuery  } from '@material-ui/core'
+import { makeStyles, useTheme } from '@material-ui/styles';
+import { Grid, Link, IconButton, ListItemText, List, ListItem } from '@material-ui/core'
+import { unstable_useMediaQuery as useMediaQuery } from '@material-ui/core/useMediaQuery';
 import { Menu as MenuIcon } from '@material-ui/icons'
 
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
 	IconButton: {
 		cursor: 'pointer',
 		color: theme.palette.common.white,
@@ -30,10 +30,10 @@ const styles = theme => ({
 	},
 
 	List: {
-			backgroundColor: theme.palette.common.white,
-			paddingTop: theme.spacing.unit * 0,
-			paddingBottom: theme.spacing.unit * 0,
-		},
+		backgroundColor: theme.palette.common.white,
+		paddingTop: theme.spacing.unit * 0,
+		paddingBottom: theme.spacing.unit * 0,
+	},
 	ListItem: {
 		color: theme.palette.secondary.main,
 		textTransform: 'uppercase',
@@ -42,10 +42,13 @@ const styles = theme => ({
 		}
 	},
 
-})
+}))
 
+export default () => {
+	const theme = useTheme();
+	const classes = useStyles();
+	const mdDown = useMediaQuery(theme.breakpoints.down('md'))
 
-const Header = ({ classes }) => {
 	let [ height, setHeight ] = useState(0)
 
 	const menuListToggleHandler = () => {
@@ -59,22 +62,20 @@ const Header = ({ classes }) => {
 	return (
 		<Fragment>
 			<Wrapper className={ classes.Wrapper }>
-			<Grid container justify="space-between" alignItems="center">
-				<Link to='/' component={ RouterLink } variant="h2" className={ classes.LinkLogo }>
-					<span className={ classes.logoFirstLetter }>T</span>exniko
-				</Link>
-				<Hidden implementation="css" mdDown>
-					<Contacts />
-				</Hidden>
-				<Hidden implementation="css" lgUp>
-				<IconButton className={ classes.IconButton } onClick={ menuListToggleHandler }>
-					<MenuIcon fontSize="large" />
-				</IconButton>
-				</Hidden>
-			</Grid>
+				<Grid container justify="space-between" alignItems="center">
+					<Link to='/' component={ RouterLink } variant="h2" className={ classes.LinkLogo }>
+						<span className={ classes.logoFirstLetter }>T</span>exniko
+					</Link>
+					{ !mdDown && <Contacts /> }
+					{ mdDown
+						&& <IconButton className={ classes.IconButton } onClick={ menuListToggleHandler }>
+							<MenuIcon fontSize="large" />
+						</IconButton> }
+
+				</Grid>
 			</Wrapper>
-			<Hidden implementation="css" lgUp>
-				<AnimateHeight
+			{ mdDown
+				&& <AnimateHeight
 					duration={ 500 }
 					height={ height }
 				>
@@ -96,14 +97,10 @@ const Header = ({ classes }) => {
 						}
 					</List>
 				</AnimateHeight>
-			</Hidden>
+			}
 			<Wrapper>
-				<Hidden implementation="css" lgUp>
-					<Contacts />
-				</Hidden>
+				{ mdDown && <Contacts/> }
 			</Wrapper>
 		</Fragment>
 	)
 }
-
-export default withStyles(styles)(Header)
