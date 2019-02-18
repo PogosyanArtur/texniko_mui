@@ -2,7 +2,7 @@ import React from 'react'
 import { makeStyles } from '@material-ui/styles';
 import { Link as RouterLink } from 'react-router-dom'
 import Wrapper from '../Wrapper'
-import { location1 } from '../../data/contacts'
+import { contactsData } from '../../data'
 import { Typography, Grid, Link, Divider, Hidden } from '@material-ui/core'
 import { AccessTime as AccessTimeIcon, LocationOn  as LocationOnIcon} from '@material-ui/icons'
 
@@ -41,11 +41,11 @@ const useStyles = makeStyles(theme=>({
 			<Grid container justify='flex-end'>
 
 				<Hidden implementation="css" smDown>
-					<Link to={ location1.href }
+					<Link to={ contactsData.location1.href }
 						component={ RouterLink }
 						variant="caption" 
 						className={ `${ classes.Text } ${ classes.Link }` }>
-						<LocationOnIcon className={ classes.icon } />{ location1.name }
+						<LocationOnIcon className={ classes.icon } />{ contactsData.location1.name }
 					</Link>
 				</Hidden>
 

@@ -3,7 +3,7 @@ import { Link as RouterLink } from 'react-router-dom'
 import AnimateHeight from 'react-animate-height';
 import Wrapper from '../Wrapper'
 import Contacts from './Contacts'
-import { tabsData } from '../../data/contacts'
+import { navigationData} from '../../data'
 import { makeStyles, useTheme } from '@material-ui/styles';
 import { Grid, Link, IconButton, ListItemText, List, ListItem } from '@material-ui/core'
 import { unstable_useMediaQuery as useMediaQuery } from '@material-ui/core/useMediaQuery';
@@ -81,7 +81,7 @@ export default () => {
 				>
 					<List component="nav" className={ classes.List }>
 						{
-							tabsData.map(item => (
+							navigationData.map(item => (
 								<ListItem
 									component={ RouterLink }
 									to={ `/${ item.value }` }

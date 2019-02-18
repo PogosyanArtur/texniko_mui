@@ -5,9 +5,8 @@ import Wrapper from '../Wrapper'
 import TopLine from "./TopLine"
 import Body from "./Body"
 
-import { tabsData } from '../../data/contacts'
+import { navigationData } from '../../data'
 import { AppBar, Hidden,  Button, Toolbar } from '@material-ui/core'
-const styledBy = (property, mapping) => props => mapping[props[property]]
 
 const useStyles = makeStyles((theme)=>({
 	Toolbar: {
@@ -27,7 +26,6 @@ const useStyles = makeStyles((theme)=>({
 
 }))
 
-
 export default () => {
 
 	const classes = useStyles()
@@ -38,12 +36,11 @@ export default () => {
 				<Toolbar className={ classes.Toolbar }>
 				<Wrapper style={{display:"flex"}}>
 					{
-						tabsData.map(item => (
+						navigationData.map(item => (
 							<Button
 								key={ item.value }
 								fullWidth
 								variant='text'
-								color="white"
 								className={ classes.Button }
 								component={ RouterLink } 
 								to={ `/${ item.value }` }
