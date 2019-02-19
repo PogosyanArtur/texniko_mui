@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link as RouterLink } from 'react-router-dom'
-import { contactsData} from '../../data'
+import { contactsData } from '../../data'
 import { makeStyles } from '@material-ui/styles';
 import { Typography, Link } from '@material-ui/core'
 import { LocationOn, MailOutline, Phone } from '@material-ui/icons'
@@ -53,9 +53,10 @@ const useStyles = makeStyles(theme => ({
     },
   },
 
-  contactItemLocation: {
-    width: 180,
-    textTransform: 'uppercase'
+  contactItemText: {
+    maxWidth: '180px',
+    color: theme.palette.common.white,
+    fontSize:'0.9rem'
   },
 
 }))
@@ -67,16 +68,19 @@ export default (props) => {
     <div className={ classes.headerContacts }>
       <Link component={ RouterLink } variant="caption" to={ contactsData.location1.href } className={ `${ classes.headerLink } ${ classes.contactItemLink } ${ classes.contactItemDisable }` }>
         <span className={ classes.headerIconOutLine }><LocationOn /></span>
-        <p className={ ` ${ classes.contactItemLocation }` }>
+        <Typography variant="caption" component="p" className={ ` ${ classes.contactItemText }` }>
           { contactsData.location1.name }
-        </p>
+        </Typography>
       </Link>
 
       <Link href={ contactsData.mail1.href } variant="caption" className={ `${ classes.headerLink } ${ classes.contactItemLink } ${ classes.contactItemDisable } ` }>
         <span className={ classes.headerIconOutLine }><MailOutline /></span>
         <div>
           <Typography variant="button" color="secondary"> E-mail: </Typography>
-          { contactsData.mail1.name }
+          <Typography variant="caption" component="p" className={ ` ${ classes.contactItemText }` }>
+            { contactsData.mail1.name }
+          </Typography>
+
         </div>
       </Link>
 
@@ -84,7 +88,9 @@ export default (props) => {
         <span className={ classes.headerIconOutLine }><Phone /></span>
         <div>
           <Typography variant="button" color="secondary"> Телефон: </Typography>
+          <Typography variant="caption" component="p" className={ ` ${ classes.contactItemText }` }>
           { contactsData.telephone1.name }
+          </Typography>          
         </div>
       </Link>
     </div>

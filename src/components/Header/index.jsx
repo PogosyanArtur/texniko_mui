@@ -16,6 +16,8 @@ const useStyles = makeStyles((theme)=>({
 	Button: {
 		height: 65,
 		color: theme.palette.common.white,
+		fontSize:'1.1rem',
+		fontWeight:'normal',
 		borderRadius: '0',
 		transform: 'skew(-15deg)',
 		'&:hover, &:focus': {

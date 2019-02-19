@@ -6,20 +6,29 @@ import { makeStyles } from '@material-ui/styles';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
-const useStyles = makeStyles({
+const useStyles = makeStyles( theme=>({
   Slide: {
-    height: '600px',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
-    backgroundPosition: '0 bottom'
+    backgroundPosition: '0 bottom',
+    height: "300px",
+    [theme.breakpoints.up('md')]: {
+      height: "400px",
+    },
+    [theme.breakpoints.up('lg')]: {
+      height: "500px",
+    },
+    [theme.breakpoints.up('xl')]: {
+      height: "600px",
+    },
   }
-})
+}))
 
 const MyComponent = () => {
   const classes = useStyles()
   return (
     <Fragment>
-      <AutoPlaySwipeableViews interval="5000">
+      <AutoPlaySwipeableViews interval={5000}>
         {
           sideImagesData.map((src, i) => (
             <div key={ src } className={ classes.Slide } style={ { backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${ require(`../../static/images/${ src }.jpg`) })` } }>

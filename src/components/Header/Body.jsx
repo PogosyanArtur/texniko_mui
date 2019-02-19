@@ -11,6 +11,10 @@ import { Menu as MenuIcon } from '@material-ui/icons'
 
 
 const useStyles = makeStyles(theme => ({
+	Wrapper:{
+		paddingTop:theme.spacing.unit,
+		paddingBottom:theme.spacing.unit,
+	},
 	IconButton: {
 		cursor: 'pointer',
 		color: theme.palette.common.white,
@@ -61,9 +65,9 @@ export default () => {
 
 	return (
 		<Fragment>
-			<Wrapper className={ classes.Wrapper }>
+			<Wrapper className ={ classes.Wrapper }>
 				<Grid container justify="space-between" alignItems="center">
-					<Link to='/' component={ RouterLink } variant="h2" className={ classes.LinkLogo }>
+					<Link to='/' component={ RouterLink } variant="h1" className={ classes.LinkLogo }>
 						<span className={ classes.logoFirstLetter }>T</span>exniko
 					</Link>
 					{ !mdDown && <Contacts /> }
@@ -98,7 +102,7 @@ export default () => {
 					</List>
 				</AnimateHeight>
 			}
-			<Wrapper>
+			<Wrapper className ={ classes.Wrapper }>
 				{ mdDown && <Contacts/> }
 			</Wrapper>
 		</Fragment>
