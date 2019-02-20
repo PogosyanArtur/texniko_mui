@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/styles'
 import { Grid, Paper, Typography, Hidden } from '@material-ui/core'
 import Wrapper from '../Wrapper'
 import IconBulldozer from '../Icons/IconBulldozer'
-import IconExcavator_1 from '../Icons/IconExcavator_1'
+import IconExcavator1 from '../Icons/IconExcavator_1'
 
 
 const useStyles = makeStyles(theme => ({
@@ -78,7 +78,7 @@ export default () => {
                         <Paper className={ `${ classes.LeftBlock } ${ classes.Block }` }>
                             <Grid container justify="space-between" spacing={ 16 }>
                                 <Hidden implementation="css" xsDown>
-                                    <Grid item sm={ 3 }><IconExcavator_1 className={classes.HomeOfferCardIcon}/></Grid>
+                                    <Grid item sm={ 3 }><IconExcavator1 className={classes.HomeOfferCardIcon}/></Grid>
                                 </Hidden>
                                 <Grid item sm={ 9 }>
                                     <Typography variant="h5" gutterBottom className={ classes.HomeOfferCardTitle }>Are You looking for a car?</Typography>
