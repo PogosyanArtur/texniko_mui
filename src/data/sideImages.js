@@ -6,7 +6,6 @@ export default [
     'digger-1453526_1920',
     'digger-2920205_1920',
     'excavator-2430648_1920',
-    'excavator-406812_1920',
     'mine-3289851_1920',
     'scoop-3061151_1920',
 ]

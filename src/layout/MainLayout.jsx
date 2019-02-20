@@ -14,7 +14,7 @@ const MainLayout = ({children}) => {
         <Fragment>
             <Header />
                 <div className={classes.spacingTop}></div>
-                {children}
+                <main>{children}</main>                
         </Fragment>
     )
 }

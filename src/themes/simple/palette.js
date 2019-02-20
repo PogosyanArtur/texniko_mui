@@ -15,10 +15,34 @@ export default {
         dark: "#bf360c",
         contrastText: "#fff"
     },
+    success: {
+        // light: "#b2a65a",
+        // main: "#8e8339",
+        // dark: "#4d4408",
+        // contrastText: "#fff"
+    },
+    danger: {
+        // light: "#b2a65a",
+        // main: "#8e8339",
+        // dark: "#4d4408",
+        // contrastText: "#fff"
+    },
+    warning : {
+        light: "#b2a65a",
+        main: "#8e8339",
+        dark: "#4d4408",
+        contrastText: "#fff"
+    },
+    info: {
+        light: "#3a626f",
+        main: "#2b4c59",
+        dark: "#",
+        contrastText: "#fff"
+    },
     error: {
-        light: "#f48fb1",
-        main: "#e91e63",
-        dark: "#ad1457",
+        light: "#554479",
+        main: "#3e2d61",
+        dark: "#2c1b4f",
         contrastText: "#fff"
     },
     gray: {
