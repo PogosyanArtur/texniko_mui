@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { Typography, Grid, Button,Collapse  } from '@material-ui/core';
-import AnimateHeight from 'react-animate-height';
 import Wrapper from '../Wrapper'
 import ProductCard from './ProductCard'
 
 const CardsData = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 ]
-const CardsDataLength = CardsData.length
 const useStyles = makeStyles(theme => ({
     Header: {
         backgroundColor: theme.palette.primary.main,
@@ -41,9 +39,9 @@ const useStyles = makeStyles(theme => ({
 
 const ProductList = () => {
     const classes = useStyles()
-    let [ showAllHeightState, setShowAllHeightState ] = useState(false)
-    const showAllItemsHandler = () => (
-        setShowAllHeightState(showAllHeightState = true)
+    let [ showAllState, setShowAllState ] = useState(false)
+    const showAllHandler = () => (
+        setShowAllState(showAllState = true)
     )
     return (
         <section>
@@ -54,31 +52,21 @@ const ProductList = () => {
             </header>
             
             <Wrapper className={ classes.Wrap }>
-                <Grid container spacing={ 24 } justify="center" >
-                    {
-                        CardsData.slice(0,8).map((item, index) => 
-                            <Grid item key={ item }>
-                                <ProductCard />
-                            </Grid>
-                       )
-                    }
-                </Grid>
-                <Collapse in={showAllHeightState} timeout={1000}>
-                    <Grid container spacing={ 24 } justify="center" className={ classes.Wrap }>
+                <Collapse in={showAllState} timeout={1000} collapsedHeight="750px">
+                    <Grid container spacing={ 24 } justify="center" >
                         {
-                            CardsData.slice(8, CardsDataLength).map((item, index) => 
+                            CardsData.map((item, index) => 
                                 <Grid item key={ item }>
                                     <ProductCard />
                                 </Grid>
-                            )
-                        }                    
+                        )
+                        }            
                     </Grid>
                 </Collapse>
              </Wrapper>           
                 <Grid container justify="center" className={ classes.Wrap }>
-                    { !showAllHeightState ? <Button onClick={ showAllItemsHandler } variant="contained" color="primary">Показать Все</Button> : null }
-                </Grid>
-            
+                    { !showAllState ? <Button onClick={ showAllHandler } variant="contained" color="primary">Показать Все</Button> : null }
+                </Grid>            
         </section>
 
     )
