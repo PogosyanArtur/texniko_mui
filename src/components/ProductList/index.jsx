@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/styles';
-import { Typography, Grid, Button } from '@material-ui/core';
+import { Typography, Grid, Button,Collapse  } from '@material-ui/core';
+import AnimateHeight from 'react-animate-height';
 import Wrapper from '../Wrapper'
 import ProductCard from './ProductCard'
 
@@ -40,39 +41,45 @@ const useStyles = makeStyles(theme => ({
 
 const ProductList = () => {
     const classes = useStyles()
-    let [ itemsToShowState, setTtemsToShowState ] = useState(8)
+    let [ showAllHeightState, setShowAllHeightState ] = useState(false)
     const showAllItemsHandler = () => (
-        setTtemsToShowState(itemsToShowState = CardsDataLength)
+        setShowAllHeightState(showAllHeightState = true)
     )
     return (
-        <section >
+        <section>
             <header className={ classes.Header }>
                 <Wrapper>
                     <Typography variant="h2" className={ classes.Title }>добро пожаловать <span className={ classes.TitleAccent }>в мир спецтехники</span></Typography>
                 </Wrapper>
             </header>
+            
             <Wrapper className={ classes.Wrap }>
-                <Grid container spacing={ 24 } justify="center">
+                <Grid container spacing={ 24 } justify="center" >
                     {
-                        CardsData.map((item, index) => {
-                            if (index < itemsToShowState)
-                            {
-                                return (<Grid item key={ item }>
-                                    <ProductCard />
-                                </Grid>)
-
-                            } else
-                            {
-                                return null
-                            }
-                        })
+                        CardsData.slice(0,8).map((item, index) => 
+                            <Grid item key={ item }>
+                                <ProductCard />
+                            </Grid>
+                       )
                     }
                 </Grid>
+                <Collapse in={showAllHeightState} timeout={1000}>
+                    <Grid container spacing={ 24 } justify="center" className={ classes.Wrap }>
+                        {
+                            CardsData.slice(8, CardsDataLength).map((item, index) => 
+                                <Grid item key={ item }>
+                                    <ProductCard />
+                                </Grid>
+                            )
+                        }                    
+                    </Grid>
+                </Collapse>
+             </Wrapper>           
                 <Grid container justify="center" className={ classes.Wrap }>
-                    { CardsDataLength > 8 && itemsToShowState <= 8 ? <Button onClick={ showAllItemsHandler } variant="contained" color="primary">Показать Все</Button> : null }
+                    { !showAllHeightState ? <Button onClick={ showAllItemsHandler } variant="contained" color="primary">Показать Все</Button> : null }
                 </Grid>
-            </Wrapper>
-        </section >
+            
+        </section>
 
     )
 }

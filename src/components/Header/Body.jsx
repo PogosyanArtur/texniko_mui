@@ -1,11 +1,10 @@
 import React, { useState, Fragment } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
-import AnimateHeight from 'react-animate-height';
 import Wrapper from '../Wrapper'
 import Contacts from './Contacts'
 import { navigationData} from '../../data'
 import { makeStyles, useTheme } from '@material-ui/styles';
-import { Grid, Link, IconButton, ListItemText, List, ListItem } from '@material-ui/core'
+import { Grid, Link, IconButton, ListItemText, List, ListItem,Collapse } from '@material-ui/core'
 import { unstable_useMediaQuery as useMediaQuery } from '@material-ui/core/useMediaQuery';
 import { Menu as MenuIcon } from '@material-ui/icons'
 
@@ -53,14 +52,14 @@ export default () => {
 	const classes = useStyles();
 	const mdDown = useMediaQuery(theme.breakpoints.down('md'))
 
-	let [ height, setHeight ] = useState(0)
+	let [ show, setShow] = useState(false)
 
 	const menuListToggleHandler = () => {
-		setHeight(height === 0 ? height = 'auto' : height = 0)
+		setShow(show = !show)
 	}
 
 	const closeMenuListHandler = () => {
-		setHeight(height = 0)
+		setShow(show = false)
 	}
 
 	return (
@@ -79,10 +78,7 @@ export default () => {
 				</Grid>
 			</Wrapper>
 			{ mdDown
-				&& <AnimateHeight
-					duration={ 500 }
-					height={ height }
-				>
+				&& <Collapse in={show} timeout={500}>
 					<List component="nav" className={ classes.List }>
 						{
 							navigationData.map(item => (
@@ -100,7 +96,7 @@ export default () => {
 							))
 						}
 					</List>
-				</AnimateHeight>
+				</Collapse>
 			}
 			<Wrapper className ={ classes.Wrapper }>
 				{ mdDown && <Contacts/> }

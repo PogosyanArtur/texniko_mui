@@ -3,6 +3,7 @@ import MainLayout from '../layout/MainLayout'
 import Banner from '../components/Banner'
 import ProductList from '../components/ProductList'
 import HomeOffer from '../components/HomeOffer'
+import Gallery from '../components/Gallery'
 
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
       <Banner/>
       <ProductList/>
       <HomeOffer/>
+      <Gallery/>
     </MainLayout>
   )
 }
