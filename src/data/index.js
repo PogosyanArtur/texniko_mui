@@ -5,5 +5,5 @@ import sideImagesData from './sideImages'
 export {
     contactsData,
     navigationData,
-    sideImagesData
+    sideImagesData,
 }

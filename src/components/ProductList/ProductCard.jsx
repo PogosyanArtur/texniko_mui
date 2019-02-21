@@ -35,7 +35,7 @@ const ProductCard = () => {
             <CardActionArea component="a">
                 <CardMedia
                     className={ classes.CardMedia }
-                    style={ { backgroundImage: `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url(${ require(`../../static/images/cards/JCB_3CXC_250x200.jpg`) })` } }
+                    image={ `${require(`../../static/images/cards/JCB_3CXC_250x200.jpg`)}` }
                     title="Live from space album cover"
                 />
                 <CardContent>

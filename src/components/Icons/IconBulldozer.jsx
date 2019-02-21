@@ -2,7 +2,7 @@ import React from 'react'
 import {SvgIcon } from '@material-ui/core'
 
 export default (props) =>
-<SvgIcon {...props}>
+<SvgIcon {...props} fontSize="default">
 <g>
 	<g>
 		<g>
