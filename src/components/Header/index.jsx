@@ -1,12 +1,11 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/styles';
 import { Link as RouterLink } from 'react-router-dom'
-import Wrapper from '../Wrapper'
+import { AppBar, Hidden,  Button, Toolbar } from '@material-ui/core'
+import { navigationData } from 'data'
+import Wrapper from 'components/Wrapper'
 import TopLine from "./TopLine"
 import Body from "./Body"
-
-import { navigationData } from '../../data'
-import { AppBar, Hidden,  Button, Toolbar } from '@material-ui/core'
 
 const useStyles = makeStyles((theme)=>({
 	Toolbar: {

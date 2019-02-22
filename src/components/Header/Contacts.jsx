@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link as RouterLink } from 'react-router-dom'
-import { contactsData } from '../../data'
 import { makeStyles } from '@material-ui/styles';
 import { Typography, Link } from '@material-ui/core'
 import { LocationOn, MailOutline, Phone } from '@material-ui/icons'
+import { contactsData } from 'data'
 
 const useStyles = makeStyles(theme => ({
   headerContacts: {

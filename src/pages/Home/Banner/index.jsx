@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
-import { sideImagesData } from '../../data'
 import { makeStyles } from '@material-ui/styles';
+import { sideImagesData } from 'data'
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -31,7 +31,7 @@ const MyComponent = () => {
       <AutoPlaySwipeableViews interval={5000}>
         {
           sideImagesData.map((src, i) => (
-            <div key={ src } className={ classes.Slide } style={ { backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${ require(`../../static/images/${ src }.jpg`) })` } }>
+            <div key={ src } className={ classes.Slide } style={ { backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${ require(`static/images/${ src }.jpg`) })` } }>
             </div>
           ))
         }

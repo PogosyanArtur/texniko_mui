@@ -1,12 +1,12 @@
 import React, { useState, Fragment } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
-import Wrapper from '../Wrapper'
-import Contacts from './Contacts'
-import { navigationData} from '../../data'
 import { makeStyles, useTheme } from '@material-ui/styles';
 import { Grid, Link, IconButton, ListItemText, List, ListItem,Collapse } from '@material-ui/core'
 import { unstable_useMediaQuery as useMediaQuery } from '@material-ui/core/useMediaQuery';
 import { Menu as MenuIcon } from '@material-ui/icons'
+import { navigationData} from 'data'
+import Contacts from './Contacts'
+import Wrapper from 'components/Wrapper'
 
 
 const useStyles = makeStyles(theme => ({

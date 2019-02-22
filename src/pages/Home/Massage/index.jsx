@@ -1,11 +1,11 @@
 import React from 'react'
 import {Paper, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
-import Wrapper from '../Wrapper'
+import Wrapper from 'components/Wrapper'
 
 const useStyles = makeStyles(theme => ({
     Container: {
-        backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${ require('../../static/images/roller_1920х1080.jpg') })`,
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${ require('static/images/roller_1920х1080.jpg') })`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         backgroundPosition: 'right top',

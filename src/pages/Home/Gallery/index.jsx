@@ -6,8 +6,8 @@ import { unstable_useMediaQuery as useMediaQuery } from '@material-ui/core/useMe
 import Carousel from 'nuka-carousel';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
-import {sideImagesData } from '../../data'
-import Wrapper from '../Wrapper'
+import {sideImagesData } from 'data'
+import Wrapper from 'components/Wrapper'
 
 const useStyles = makeStyles(theme => ({
     Title:{
@@ -123,7 +123,7 @@ export default () => {
                             <div className={classes.CardMediaContainer}>
                                 <CardMedia 
                                     className={ classes.CardMedia } 
-                                    image={require(`../../static/images/${item}.jpg`)} />                                
+                                    image={require(`static/images/${item}.jpg`)} />                                
                                     <div className={classes.CardMediaCover}></div>
                             </div>
                             <CardContent>
@@ -153,9 +153,9 @@ export default () => {
                 />
                 {lightboxIsOpen &&(
                      <Lightbox
-                     mainSrc={require(`../../static/images/${imagesData[photoIndex]}.jpg`)}
-                     nextSrc={require(`../../static/images/${imagesData[(photoIndex + 1) % imagesDataLength]}.jpg`) }
-                     prevSrc={require(`../../static/images/${imagesData[(photoIndex + imagesDataLength - 1) % imagesDataLength]}.jpg`)}
+                     mainSrc={require(`static/images/${imagesData[photoIndex]}.jpg`)}
+                     nextSrc={require(`static/images/${imagesData[(photoIndex + 1) % imagesDataLength]}.jpg`) }
+                     prevSrc={require(`static/images/${imagesData[(photoIndex + imagesDataLength - 1) % imagesDataLength]}.jpg`)}
                      onCloseRequest={() => setLightboxIsOpen(false)}
                      onMovePrevRequest={() =>
                         setPhotoIndex((photoIndex + imagesDataLength - 1) % imagesDataLength)

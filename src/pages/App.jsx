@@ -1,7 +1,6 @@
 import React from 'react'
 import { Route, Switch } from "react-router-dom";
-
-import CommonLayout from '../layout/CommonLayout'
+import CommonLayout from 'layout/CommonLayout'
 import Home from './Home'
 import AboutUs from './AboutUs'
 import Equipment from './Equipment'
