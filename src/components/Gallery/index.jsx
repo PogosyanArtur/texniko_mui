@@ -33,15 +33,13 @@ const useStyles = makeStyles(theme => ({
         left:0,
         height:'100%',
         width:'100%',
-        backgroundColor:theme.palette.info.light,
+        backgroundColor:theme.palette.primary.light,
         opacity: 0.4
     },
     CardTitle: {
-        color: theme.palette.info.main
+        color: theme.palette.primary.main
     },
     MobileStepper: {
-        marginTop:theme.spacing.unit * 2,
-        marginBottom:theme.spacing.unit * 2,
         justifyContent:'center',
         backgroundColor: theme.palette.primary.main,
     },

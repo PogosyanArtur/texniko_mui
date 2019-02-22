@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
     height: theme.spacing.unit * 5,
     width: theme.spacing.unit * 5,
     borderRadius: '100%',
-    border: `3px solid ${ theme.palette.secondary.main }`,
+    border: `2px solid ${ theme.palette.secondary.main }`,
     color: theme.palette.secondary.main,
     marginRight: theme.spacing.unit * 1.5,
   },
@@ -66,29 +66,29 @@ export default (props) => {
 
   return (
     <div className={ classes.headerContacts }>
-      <Link component={ RouterLink } variant="caption" to={ contactsData.location1.href } className={ `${ classes.headerLink } ${ classes.contactItemLink } ${ classes.contactItemDisable }` }>
+      <Link component={ RouterLink } variant="subtitle1" to={ contactsData.location1.href } className={ `${ classes.headerLink } ${ classes.contactItemLink } ${ classes.contactItemDisable }` }>
         <span className={ classes.headerIconOutLine }><LocationOn /></span>
-        <Typography variant="caption" component="p" className={ ` ${ classes.contactItemText }` }>
+        <Typography variant="subtitle1" component="p" className={ ` ${ classes.contactItemText }` }>
           { contactsData.location1.name }
         </Typography>
       </Link>
 
-      <Link href={ contactsData.mail1.href } variant="caption" className={ `${ classes.headerLink } ${ classes.contactItemLink } ${ classes.contactItemDisable } ` }>
+      <Link href={ contactsData.mail1.href } variant="subtitle1" className={ `${ classes.headerLink } ${ classes.contactItemLink } ${ classes.contactItemDisable } ` }>
         <span className={ classes.headerIconOutLine }><MailOutline /></span>
         <div>
           <Typography variant="button" color="secondary"> E-mail: </Typography>
-          <Typography variant="caption" component="p" className={ ` ${ classes.contactItemText }` }>
+          <Typography variant="subtitle1" component="p" className={ ` ${ classes.contactItemText }` }>
             { contactsData.mail1.name }
           </Typography>
 
         </div>
       </Link>
 
-      <Link href={ contactsData.telephone1.href } variant="caption" className={ `${ classes.headerLink } ${ classes.contactItemLink }` }>
+      <Link href={ contactsData.telephone1.href } variant="subtitle1" className={ `${ classes.headerLink } ${ classes.contactItemLink }` }>
         <span className={ classes.headerIconOutLine }><Phone /></span>
         <div>
           <Typography variant="button" color="secondary"> Телефон: </Typography>
-          <Typography variant="caption" component="p" className={ ` ${ classes.contactItemText }` }>
+          <Typography variant="subtitle1" component="p" className={ ` ${ classes.contactItemText }` }>
           { contactsData.telephone1.name }
           </Typography>          
         </div>

@@ -25,20 +25,24 @@ const useStyles = makeStyles(theme => ({
     Block: {
         minHeight: '250px',
         width: '100%',
-        opacity: 0.7,
+        opacity: 0.55,
         display: 'flex',
         alignItems: 'center',
+        transition:'opacity 0.3s',
         padding: theme.spacing.unit * 5,
         [ theme.breakpoints.up('lg') ]: {
             minWidth: '350px',
             maxWidth: '550px'
         },
+        "&:hover":{
+            opacity: 1,
+        }
     },
     LeftBlock: {
         backgroundColor: theme.palette.warning.light,
     },
     RightBlock: {
-        backgroundColor: theme.palette.info.light,
+        backgroundColor: theme.palette.primary.light,
     },
     HomeOfferCardTitle: {
         color: theme.palette.common.dark,

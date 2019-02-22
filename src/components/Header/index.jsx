@@ -17,9 +17,9 @@ const useStyles = makeStyles((theme)=>({
 		height: 65,
 		color: theme.palette.common.white,
 		fontSize:'1.1rem',
-		fontWeight:'normal',
+		fontWeight:'300',
 		borderRadius: '0',
-		transform: 'skew(-15deg)',
+		transform: 'skew(-13deg)',
 		'&:hover, &:focus': {
 			backgroundColor: theme.palette.primary.main,
 			

@@ -4,9 +4,9 @@ export default {
         white: "#fff",
     },
     primary: {
-        light: "#454E79",
-        main: "#2E3761",
-        dark: "#1C254F",
+        light: "#3a626f",
+        main: "#2b4c59",
+        dark: "#0a2934",
         contrastText: "#fff"
     },
     secondary: {
@@ -15,36 +15,16 @@ export default {
         dark: "#bf360c",
         contrastText: "#fff"
     },
-    success: {
-        // light: "#b2a65a",
-        // main: "#8e8339",
-        // dark: "#4d4408",
-        // contrastText: "#fff"
-    },
-    danger: {
-        // light: "#b2a65a",
-        // main: "#8e8339",
-        // dark: "#4d4408",
-        // contrastText: "#fff"
-    },
     warning : {
         light: "#b2a65a",
         main: "#8e8339",
         dark: "#4d4408",
         contrastText: "#fff"
     },
-    info: {
-        light: "#3a626f",
-        main: "#2b4c59",
-        dark: "#",
-        contrastText: "#fff"
-    },
-    error: {
-        light: "#554479",
-        main: "#3e2d61",
-        dark: "#2c1b4f",
-        contrastText: "#fff"
-    },
+    // success: { },
+    // danger: {},
+    // info: {},
+    // error: { },
     gray: {
         50: "#fafafa",
         100: "#f5f5f5",
