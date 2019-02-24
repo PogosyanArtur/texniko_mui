@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/styles';
-import { Link as RouterLink } from 'react-router-dom'
+import { NavLink} from 'react-router-dom'
 import { AppBar, Hidden,  Button, Toolbar } from '@material-ui/core'
 import { navigationData } from 'data'
 import Wrapper from 'components/Wrapper'
@@ -15,14 +15,17 @@ const useStyles = makeStyles((theme)=>({
 	Button: {
 		height: 65,
 		color: theme.palette.common.white,
-		fontSize:'1.1rem',
-		fontWeight:'300',
+		fontSize:'1rem',
+		fontWeight:'400',
 		borderRadius: '0',
-		transform: 'skew(-13deg)',
+		letterSpacing:"1px",
+		transition:"all 0.3s",
 		'&:hover, &:focus': {
 			backgroundColor: theme.palette.primary.main,
-			
 		}
+	},
+	ButtonActive:{
+		backgroundColor: theme.palette.primary.main,
 	}
 
 }))
@@ -34,7 +37,7 @@ export default () => {
 			<TopLine/>
 			<Body/>
 			<Hidden implementation="css" mdDown>
-				<Toolbar className={ classes.Toolbar }>
+				<Toolbar className={ classes.Toolbar } component="nav">
 				<Wrapper style={{display:"flex"}}>
 					{
 						navigationData.map(item => (
@@ -43,7 +46,9 @@ export default () => {
 								fullWidth
 								variant='text'
 								className={ classes.Button }
-								component={ RouterLink } 
+								exact
+								component={ NavLink }
+								activeClassName={classes.ButtonActive}
 								to={ `/${ item.value }` }
 							>
 								{ item.name }

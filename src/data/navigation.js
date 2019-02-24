@@ -16,6 +16,10 @@ export default [
         value:'aboutUs'
     },
     {
+        name:'фотогалерея',
+        value:'gallery'
+    },
+    {
         name:'контакты',
         value:'contacts'
     },

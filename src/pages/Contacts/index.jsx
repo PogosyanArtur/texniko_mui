@@ -1,12 +1,13 @@
 import React from 'react'
 import MainLayout from 'layout/MainLayout'
+import Banner from 'components/PageContacts/Banner'
 
-const Home = () => {
+
+export default () => {
   return (
     <MainLayout>
-        <h3>Hekllow</h3>
+      <Banner/>
     </MainLayout>
   )
 }
 
-export default Home

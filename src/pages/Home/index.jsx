@@ -1,11 +1,11 @@
 import React from 'react';
 import MainLayout from 'layout/MainLayout'
-import Banner from './Banner'
-import ProductList from './ProductList'
-import Offer from './Offer'
-import Gallery from './Gallery'
-import WhyChooseUS from './WhyChooseUS'
-import Massage from './Massage'
+import Banner from 'components/PageHome/Banner'
+import ProductList from 'components/PageHome/ProductList'
+import Offer from 'components/PageHome/Offer'
+import Gallery from 'components/PageHome/Gallery'
+import WhyChooseUS from 'components/PageHome/WhyChooseUS'
+import Massage from 'components/PageHome/Massage'
 
 
 const Home = () => {

@@ -3,8 +3,8 @@ import { makeStyles } from '@material-ui/styles';
 import { Typography, Grid, Button,Collapse  } from '@material-ui/core';
 import Wrapper from 'components/Wrapper'
 import ProductCard from './ProductCard'
+import {productListData} from 'data'
 
-const CardsData = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 ]
 const useStyles = makeStyles(theme => ({
     Header: {
         backgroundColor: theme.palette.primary.main,
@@ -52,12 +52,12 @@ const ProductList = () => {
             </header>
             
             <Wrapper className={ classes.Wrap }>
-                <Collapse in={showAllState} timeout={1000} collapsedHeight="750px">
+                <Collapse in={showAllState} timeout={1000} collapsedHeight="600px">
                     <Grid container spacing={ 24 } justify="center" >
                         {
-                            CardsData.map((item, index) => 
-                                <Grid item key={ item }>
-                                    <ProductCard />
+                            productListData.map((item) => 
+                                <Grid item key={ item.id }>
+                                    <ProductCard id={item.id} title={item.title}/>
                                 </Grid>
                         )
                         }            
